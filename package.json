@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/yuweibor/guoke/issues"
   },
-  "homepage": "https://github.com/yuweibor/guoke#readme"
+  "homepage": "https://github.com/yuweibor/guoke#readme",
+  "dependencies": {
+    "yarn": "^1.21.1"
+  },
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "style-loader": "^1.1.3"
+  }
 }
