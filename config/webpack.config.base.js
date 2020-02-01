@@ -7,16 +7,11 @@ module.exports = {
   mode: "development",
   entry: ["./src/index.js"],
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: ["bundle"].js,
+    path: path.resolve(__dirname, "./../dist"),
+    filename: "[hash].bundle.js",
     publicPath: "/publicPath/",
     library: "",
-    // libraryTarget: "umd",
-    // libraryTarget: "jsonp",
-    // pathinfo: true,
-    // chunkFilename: "[id].js",
-    // chunkFilename:"[chunkhash].js",
-    // sourceMapFilename: "sourcemaps/[file].map",
+    sourceMapFilename: "sourcemaps/[hash].map",
     crossOriginLoading: "use-credentials"
   },
   module: {
@@ -27,7 +22,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader"
         }
@@ -38,22 +33,26 @@ module.exports = {
       }
     ]
   },
+  devtool: "cheap-module-source-map",
   performance: {
-    hints: "warning", //error/false
+    hints: false, //error/false
     maxAssetSize: 200000,
     maxEntrypointSize: 400000,
     assetFilter: function(assetFilename) {}
   },
   devServer: {
     port: 3000,
-    contentBase: "./dist"
+    hot: true,
+    compress: true,
+    contentBase: path.resolve(__dirname, "./../dist/"),
+    watchContentBase: true,
+    publicPath: "/publicPath/"
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
-      //   favicon:
-      infect: true,
       sourceMap: true,
+      inject: true,
       chunksSortMode: "dependency"
     }),
     new CleanWebpackPlugin()

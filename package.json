@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --config ./config/webpack.config.dev.js ",
-    "prod": "webpack --config ./config/webpack.config.prod.js"
+    "build": "webpack --config ./config/webpack.config.dev.js",
+    "start": "webpack --config ./config/webpack.config.dev.js && webpack-dev-server --color --config ./config/webpack.config.dev.js  --open",
+    "prod": "webpack --config ./config/webpack.config.prod.js  --colors"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,8 @@
   "homepage": "https://github.com/yuweibor/guoke#readme",
   "dependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-router": "^5.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
