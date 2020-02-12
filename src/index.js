@@ -10,19 +10,19 @@ import App from "./pages/App.js";
 import Home from "./pages/Home.js";
 import User from "./pages/User.js";
 
-export default () => {
+const Routers = () => {
   return (
     <Router>
       <Switch>
         <Route exact path="/">
           <App />
         </Route>
-        <Route path="/user">
+        <Route exact path="/user">
           <User />
         </Route>
-        <Route path="/home" component={Home} />
+        <Route exact path="/home" component={Home} />
       </Switch>
     </Router>
   );
 };
-// ReactDom.render(<Routers />, document.getElementById("App"));
+ReactDom.render(<Routers />, document.getElementById("App"));

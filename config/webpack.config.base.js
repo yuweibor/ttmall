@@ -47,7 +47,8 @@ module.exports = {
     compress: true,
     contentBase: path.resolve(__dirname, "./../dist/"),
     //watchContentBase: true,
-    publicPath: "/"
+    publicPath: "/",
+    historyApiFallback: true //broswerRouter 需要加这个
   },
   plugins: [
     new HtmlWebpackPlugin({
