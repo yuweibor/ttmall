@@ -5,15 +5,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: ["./src/index.js"],
+  entry: { index: "./src/index.js" },
   output: {
     path: path.resolve(__dirname, "./../dist"),
     filename: "[hash].bundle.js",
-    publicPath: "/publicPath/",
+    publicPath: "/",
     library: "",
     sourceMapFilename: "sourcemaps/[hash].map",
     crossOriginLoading: "use-credentials"
   },
+
   module: {
     rules: [
       {
@@ -33,7 +34,7 @@ module.exports = {
       }
     ]
   },
-  devtool: "cheap-module-source-map",
+  //   devtool: "cheap-module-source-map",
   performance: {
     hints: false, //error/false
     maxAssetSize: 200000,
@@ -45,15 +46,23 @@ module.exports = {
     hot: true,
     compress: true,
     contentBase: path.resolve(__dirname, "./../dist/"),
-    watchContentBase: true,
-    publicPath: "/publicPath/"
+    //watchContentBase: true,
+    publicPath: "/"
   },
   plugins: [
     new HtmlWebpackPlugin({
+      // 打包输出HTML
+      title: "title is",
+      minify: {
+        // 压缩HTML文件
+        removeComments: true, // 移除HTML中的注释
+        collapseWhitespace: true, // 删除空白符与换行符
+        minifyCSS: true // 压缩内联css
+      },
+      filename: "index.html",
       template: "index.html",
-      sourceMap: true,
-      inject: true,
-      chunksSortMode: "dependency"
+      showErrors: true,
+      trunks: ["index"]
     }),
     new CleanWebpackPlugin()
   ]
