@@ -1,4 +1,5 @@
 import React from "react";
+import "@babel/polyfill";
 const { fromJS } = require("immutable");
 
 class Home extends React.PureComponent {
@@ -8,25 +9,19 @@ class Home extends React.PureComponent {
 
   componentWillMount() {
     this.params = this.props.match.params;
-    const x = fromJS({
-      a: "n",
-      b: [{ c: 2, d: "发鬼地方个健康的分割空间<>" }]
+    this.test().then(() => {
+      console.log("done");
     });
-    const y = fromJS({
-      a: "n",
-      b: [{ c: 2, d: "发鬼地方个健康的分割空间<>" }]
+  }
+
+  async test() {}
+
+  wait(sec) {
+    return new Promise((ok, err) => {
+      setTimeout(() => {
+        ok();
+      }, sec);
     });
-    y.set("a", "m");
-    console.log(
-      "a",
-      x,
-      y,
-      x.get("a"),
-      y.get("a"),
-      x.equals(y),
-      x == y,
-      x === y
-    );
   }
 
   render() {
