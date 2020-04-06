@@ -8,12 +8,20 @@ import {
   useParams,
   Redirect
 } from "react-router-dom";
+
+// import { createStore } from "redux";
+// import { Provider } from "react-redux";
+// import reducer from "./reducers";
+
 import App from "./pages/App.js";
 import Home from "./pages/Home.js";
 import User from "./pages/User.js";
 
+// const store = createStore(reduer);
+
 const Routers = () => {
   return (
+    // <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path="/">
@@ -26,6 +34,7 @@ const Routers = () => {
         <Route exact path="/home" component={Home} />
       </Switch>
     </Router>
+    // </Provider>
   );
 };
 ReactDom.render(<Routers />, document.getElementById("App"));

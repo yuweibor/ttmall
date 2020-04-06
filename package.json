@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./config/webpack.config.dev.js",
-    "start": "webpack-dev-server --config ./config/webpack.config.dev.js --color --open",
+    "start": "webpack-dev-server --config ./config/webpack.config.dev.js",
     "prod": "webpack --config ./config/webpack.config.prod.js  --colors"
   },
   "repository": {

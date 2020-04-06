@@ -1,8 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-class App extends React.Component {
+import Nav from "./../components/Nav";
+import NavHOC from "./../components/NavHOC";
+class App extends React.PureComponent {
   render() {
-    return <div>App</div>;
+    return NavHOC(Nav)({
+      arr: [
+        { name: 2 },
+        { name: 4 },
+        { name: 1 },
+        { name: 3 },
+        { name: 9 },
+        { name: 1 }
+      ]
+    });
   }
 }
 
