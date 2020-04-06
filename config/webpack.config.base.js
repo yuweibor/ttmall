@@ -34,7 +34,7 @@ module.exports = {
       }
     ]
   },
-  //   devtool: "cheap-module-source-map",
+  devtool: "cheap-module-source-map",
   performance: {
     hints: false, //error/false
     maxAssetSize: 200000,
